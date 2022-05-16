@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Recommended Viewing Applications</title>
+</head>
+<body>
+<H4>Recommended Viewing Applications: </H4>
+<ul>
+    <li th:each="recommendedApplication : ${recommendedApplications}">
+       Booking ID: <span th:text="${recommendedApplication.bookingID}"></span>|
+        Username: <span th:text="${recommendedApplication.username}"></span> |
+        Requested visit date: <span th:text="${recommendedApplication.visitDate}"></span> |
+        Confirmed: <span th:text="${recommendedApplication.conformationStatus}"></span>
+    </li>
+</ul>
+
+<form th:action="@{/RecommendedViewingApplications/submit}" method="post" th:object="${bookViewing}">
+
+    <div class="form-group">
+        <label class="control-label" for="bookingID"> Booking ID to be confirmed </label>
+        <input id="bookingID" class="form-control" th:field="*{bookingID}"
+               required autofocus="autofocus" />
+    </div>
+
+    <br/>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-success">APPROVE VIEWINGS</button>
+    </div>
+
+</form>
+
+</body>
+</html>

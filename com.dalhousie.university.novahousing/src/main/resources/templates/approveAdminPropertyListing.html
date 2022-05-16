@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>All posts in blog:</h2>
+
+<br/><br/>
+<div>
+    <table border="1">
+        <tr>
+            <th>Date</th>
+            <th>Post Area</th>
+            <th>Post Bedroom</th>
+            <th>Post Bathroom</th>
+            <th>Post Property type</th>
+            <th colspan="2">Action</th>
+        </tr>
+        <tr th:each ="post : ${allPostProperties}">
+            <td th:utext="${post.postDate}">...</td>
+            <td th:utext="${post.property.area}">...</td>
+            <td th:utext="${post.property.bedroomNumber}">...</td>
+            <td th:utext="${post.property.bathroomNumber}">...</td>
+            <td th:utext="${post.property.type}">...</td>
+            <td>
+                <form th:action = "@{/adminPropertyListing/approveProperty(id=${post.id},approveStatus='Yes')}" method = "POST">
+                    <button type="submit" name="select">Approve</button>
+                </form>
+            </td>
+            <td>
+                <form th:action = "@{/adminPropertyListing/approveProperty(id=${post.id},approveStatus='No')}" method = "POST">
+                    <button type="submit" name="select">Reject</button>
+                </form>
+            </td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

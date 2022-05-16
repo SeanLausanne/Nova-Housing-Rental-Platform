@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Screened Rental Applications</title>
+</head>
+<body>
+<H4>Screened Rental Applications: </H4>
+<ul>
+    <li th:each="ScreenedApplication : ${ScreenedApplications}">
+        Applier Username: <span th:text="${ScreenedApplication.applier_username}"></span> |
+        Phone Number: <span th:text="${ScreenedApplication.phone_number}"></span> |
+        Requested Move in date: <span th:text="${ScreenedApplication.moveInDate}"></span> |
+      </li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Property Checks</title>
+</head>
+<body>
+
+<form th:action="@{/SetPropertyChecks/submit}" method="post" th:object="${propertyChecks}">
+
+    <div class="form-group">
+        <label class="control-label" for="propertyID"> propertyID </label>
+        <input id="propertyID" class="form-control" th:field="*{propertyID}"
+               required autofocus="autofocus" />
+    </div>
+
+
+    <div class="form-group">
+        <label class="control-label" for="preferredTenantStatus"> preferred Tenant Status </label> <input
+            id="preferredTenantStatus" class="form-control" th:field="*{preferredTenantStatus}"
+            required autofocus="autofocus" />
+    </div>
+
+    <div class="form-group">
+        <label class="control-label" for="preferredRentalHistory"> preferred Rental History</label> <input
+            id="preferredRentalHistory" class="form-control" th:field="*{preferredRentalHistory}"
+            required autofocus="autofocus" />
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-success">SET CHECKS</button>
+    </div>
+
+</form>
+</body>
+</html>

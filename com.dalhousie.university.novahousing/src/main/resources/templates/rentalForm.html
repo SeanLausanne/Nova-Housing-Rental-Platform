@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+    <form th:action="@{/applyrent/apply}" method="post" th:object="${rentFormObj}">
+
+        <div th:if="${param.error}">
+            <div class="alert alert-danger">Please enter valid input.</div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label" for="applier_username"> Username </label>
+            <input id="applier_username" class="form-control" th:field="*{applier_username}"
+                   required autofocus="autofocus" />
+        </div>
+
+        <div class="form-group">
+            <label class="control-label" for="moveInDate"> Move In Date </label> <input
+                id="moveInDate" type="date" class="form-control" th:field="*{moveInDate}"
+                required autofocus="autofocus" />
+        </div>
+
+
+             <input type="hidden" id="propertyId" class="form-control" th:field="*{propertyId}"
+                autofocus="autofocus" />
+
+
+        <div class="form-group">
+            <label class="control-label" for="phone_number"> Phone Number </label> <input
+                id="phone_number" type="text" class="form-control" th:field="*{phone_number}"
+                required autofocus="autofocus"/>
+        </div>
+
+        <!--<div class="form-group">
+            <label class="control-label" for="animal"> Animal </label>
+            <p>Do you have animal?</p>
+             <input type="radio" id="animal-yes" type="text" class="form-control" th:field="*{animal}">
+            <label >Yes</label><br>
+            <input type="radio" id="animal-no" type="text" class="form-control" th:field="*{animal}">
+              <label>No</label><br>-->
+        <div class="form-group">
+            <label class="control-label" for="animal"> Do you have an animal? </label>
+            <input
+                id="animal" type="text" class="form-control" th:field="*{animal}"
+                required autofocus="autofocus"/>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label" for="occupants"> Please provide occupants </label>
+        <input
+                id="occupants" type="text" class="form-control" th:field="*{occupants}"
+                required autofocus="autofocus"/>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label" for="annualsalary"> Annual Salary </label> <input
+                id="annualsalary" type="number" class="form-control" th:field="*{annualsalary}"
+                required autofocus="autofocus"/>
+        </div>
+
+
+
+       <!-- </div>-->
+
+        <!--<table>
+            <thead>
+            <tr>
+                <th> First Name</th>
+                <th> Last Name</th>
+                <th> Relationship</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="occupant, itemStat : *{occupantList}">
+                <td><input th:field="*{occupantList[__${itemStat.index}__].firstName}" /></td>
+                <td><input th:field="*{occupantList[__${itemStat.index}__].lastName}" /></td>
+                <td><input th:field="*{occupantList[__${itemStat.index}__].relationship}" /></td>
+            </tr>
+            </tbody>
+        </table>-->
+
+        <!--
+        long id;
+    String firstName;
+    String lastName;
+    String relationship;
+    long applicationId;
+    int age;
+
+        long id;
+    String username;
+    long propertyId;
+    Date appliedOn;  // can be changed to Date
+    Date moveinDate;
+    long phone_number;
+    String animal;
+    List<Occupant> occupantList;-->
+
+        <!--<div class="form-group">
+            <label class="control-label" for="username"> Username </label> <input
+                id="username" class="form-control" th:field="*{username}" required
+                autofocus="autofocus" />
+        </div>-->
+
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-success" id="application-submit">Submit</button>
+        </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,21 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Application Successful</title>
+</head>
+<body>
+Application submitted. Please wait for conformation.
+
+<h4>Details of user</h4>
+
+<div th:if="${userDetails!=null}">
+<p>Status: <span th:text="${userDetails.user_status}"></span> | Annual Income: <span th:text="${userDetails.annual_income}"></span></p>
+</div>
+<div th:if="${userDetails==null}">
+    <p> User details regarding application not found:  <a th:href="@{UserDetails}">Add details</a> </p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>All posts in blog:</h2>
+
+<br/><br/>
+<div>
+    <table border="1">
+        <tr>
+            <th>Date</th>
+            <th>Post Area</th>
+            <th>Post Bedroom</th>
+            <th>Post Bathroom</th>
+            <th>Post Property type</th>
+            <th>Action</th>
+        </tr>
+        <tr th:each ="post : ${allPostProperties}">
+            <td th:utext="${post.postDate}">...</td>
+            <td th:utext="${post.property.area}">...</td>
+            <td th:utext="${post.property.bedroomNumber}">...</td>
+            <td th:utext="${post.property.bathroomNumber}">...</td>
+            <td th:utext="${post.property.type}">...</td>
+            <td>
+                <form th:action = "@{/applyrent/selectedPostProperty(id=${post.id})}" method = "POST">
+                    <button type="submit" name="select">Apply</button>
+                </form>
+            </td>
+        </tr>
+    </table>
+</div>
+<!--<a href="index">Home</a>-->
+</body>
+</html>
